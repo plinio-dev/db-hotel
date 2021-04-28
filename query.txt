@@ -28,7 +28,7 @@
 7) Seleziona gli ospiti riconosciuti con patente e nati nel 1975
 
 		
-		SELECT * FROM `ospiti` WHERE `document_type` = 'Driver License' AND year(date_of_birth) = '1975’;
+		SELECT * FROM `ospiti` WHERE `document_type` = 'Driver License' AND year(date_of_birth) = '1975'
 
 		
 
