@@ -8,7 +8,7 @@
 
 3) Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell’esecuzione della query)
 
-		SELECT * FROM `ospiti` WHERE year(date_of_birth) <= '2001';
+		SELECT * FROM `ospiti` WHERE                                           <= '2001';
 
 		
 4) Seleziona tutti gli ospiti il cui nome inizia con la D
@@ -36,3 +36,34 @@
 
 		SELECT SUM(beds) AS posti_letto_totali  FROM `stanze`;
 
+
+
+
+GROUP BY
+1) Conta gli ospiti raggruppandoli per anno di nascita
+
+	SELECT YEAR(`date_of_birth`), COUNT(`id`)
+	FROM `ospiti`
+	GROUP BY `date_of_birth`;
+
+2) Somma i prezzi dei pagamenti raggruppandoli per status
+
+	SELECT SUM(`price`), COUNT(`id`)
+	FROM `pagamenti`
+	GROUP BY `status` = 'accepted';
+
+3) Conta quante volte è stata prenotata ogni stanza
+
+	SELECT (`stanza_id`), COUNT(`id`) AS 'numero_di_prenotazioni'
+	FROM `prenotazioni`
+	GROUP BY `stanza_id`;
+
+4) Fai una analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti
+5) Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
+JOIN
+1) Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
+2) Stampare tutti gli ospiti per ogni prenotazione
+3) Stampare Nome, Cognome, Prezzo e Pagante per tutte le prenotazioni fatte a Maggio 2018
+4) Fai la somma di tutti i prezzi delle prenotazioni per le stanze del primo piano
+5) Prendi i dati di fatturazione per la prenotazione con id=7
+6) Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate) 
